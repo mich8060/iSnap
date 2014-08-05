@@ -41,6 +41,7 @@ input::-moz-focus-inner {
 .button {
 	display:inline-block;
     @include modular_scale("font-size", 4);
+	letter-spacing:0.04em;
     @include modular_scale("line-height", 10);
 	@include modular_scale("margin", 0 1 1 0);
 	@include modular_scale("padding", 0 8);

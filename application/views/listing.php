@@ -12,7 +12,7 @@
 		<nav>
 			<a href="#">Recent</a>
 			<a href="#">Popular</a>
-			<a href="#">Designers</a>
+			<a href="#">People</a>
 			<a href="#">Teams</a>
 		</nav>
 		<menu>
@@ -22,7 +22,7 @@
 	</header>
 	<section class="intro">
 		<div class="outer-container">
-			<h1 class="light">The fastest and easiest way to visually bookmark your favorites sites while surfing the web.</h1>
+			<h1 class="light">The fastest and easiest way to visually bookmark your favorites sites while surfing the web</h1>
 			<p>
 				<a href="#" class="button white">Getting Started</a>
 				<a href="#" class="button white-outline">Sign In</a>

@@ -211,7 +211,7 @@ p::selection {
 h1, h2, h3, h4, h5 { font-weight:700; text-indent:-2px; }
 h1 { 
 	@include modular_scale("font-size",12); 
-	@include modular_scale("line-height",10); 
+	@include modular_scale("line-height",11); 
 	letter-spacing:-0.020em;
 }
 h2 { 
