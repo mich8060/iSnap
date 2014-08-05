@@ -1,0 +1,42 @@
+.intro {
+	background:#f2726d;
+	color:colors(white);
+	@include modular_scale("padding",40 0 20 0);
+	@include modular_scale("margin", 0 0 10 0);
+	text-align:center;
+	
+	p {
+		@include modular_scale("margin", 10 0);
+	}
+}
+
+.listing-block {
+	color:#fff;
+	display:block;
+	overflow:hidden;
+	position:relative;
+	@include prefix('border-radius', 3px);
+	@include prefix('box-shadow', 0 0 3px rgba(0,0,0,0.1));
+	@include prefix('transition', all 0.3s ease);
+	
+	&:hover {
+		color:#fff;
+		@include prefix('box-shadow', 0 0 10px rgba(0,0,0,0.4));
+	}
+	
+	.info {
+		/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+		background: rgba(0,0,0,0.5);
+		bottom:0px;
+		left:0px;
+		@include modular_scale("font-size",3);
+		@include modular_scale("padding",2);
+		position:absolute;
+		right:0px;
+	}
+}
+
+.pagination {
+	@include modular_scale("padding",10 0 5 0);
+	text-align:center;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Michael Stevens</title>
+<link rel="stylesheet" href="http://localhost:8888/snapme/css/fonts.css" />
+<link rel="stylesheet" href="css/popup.css" />
+</head>
+<body>
+<article>
+	<div id="signin">
+		<div class="container">
+			<p>
+				<div class="spacer"> The fastest and easiest way to visually bookmark your favorites sites while surfing the web.</div>
+			</p>
+			<form id="signin-form" method="post" action="http://localhost:8888/snapme/signin">
+				<div class="error">
+					Invalid Email or Password
+				</div>
+				<input type="email" placeholder="Email Address" />
+				<input type="password" placeholder="Password" />
+				<div class="spacer">
+					<input type="submit" value="Sign In" />
+				</div>
+			</form>
+			<p>
+				<a href="http://www.isnap.me/forgot" target="_blank">Forgot Password</a>
+			</p>
+			<p>
+				<a href="http://www.isnap.me/request" target="_blank">Request a membership?</a>
+			</p>
+		</div>
+	</div>
+	<form id="data" method="post" action="http://localhost:8888/core/forms/sites">
+		<input type="text" name="user" id="user" />
+		<input type="text" name="key" id="key" />
+		<input type="text" name="url" id="url" placeholder="url" />
+		<input type="text" name="name" id="name" placeholder="name" />
+		<input type="text" name="title" id="title" placeholder="title" />
+		<textarea name="description" id="description" cols="30" rows="5" placeholder="Description"></textarea>
+		<textarea name="keywords" id="keywords" cols="30" rows="5" placeholder="Keywords"></textarea>
+		<textarea name="author" id="author" cols="30" rows="5" placeholder="Author"></textarea>
+		<textarea name="image" id="image" cols="30" rows="5" placeholder="Image"></textarea>
+		<textarea name="debug" id="debug" cols="30" rows="5" placeholder="Debug"></textarea>
+	</form>
+</article>
+<script src="js/zepto.min.js"></script>
+<script src="js/zepto.popup.js"></script>
+</body>
+</html>

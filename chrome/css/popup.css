@@ -1,0 +1,99 @@
+body {
+	background:#F2726E;
+	color:#fff;
+	font-family:"Proxima-Nova",Helvetica, Arial, Sans-Serif;
+	font-size:16px;
+	line-height:20px;
+	min-width: 320px;
+	min-height:480px;
+	padding:0;
+	overflow-x: hidden;
+	text-align:center;
+}
+
+#signin {
+	background:url(../img/background@2x.png) no-repeat top center;
+	background-size:320px 480px;
+	padding:125px 0 0 0;
+}
+
+img {
+	width:100%;
+}
+
+a {
+	color:#fff;
+	text-decoration:underline;
+}
+
+p {
+	margin:20px 0;
+}
+
+input, textarea {
+	border:none;
+	margin:0;
+	outline:none;
+	width:100%;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+			box-sizing: border-box;
+}
+
+.container {
+	margin:0 auto;
+	width:300px;
+}
+
+#signin-form input[type="email"],
+#signin-form input[type="password"] {
+	font-family:inherit;
+	font-size:16px;
+	font-weight:100;
+	padding:10px;
+}
+
+#signin-form input[type="email"]{
+	border-radius:3px 3px 0 0;
+	margin:0;
+}
+#signin-form input[type="password"]{
+	border-top:solid 1px #ddd;
+	border-radius:0 0 3px 3px;
+	margin:0 0 10px 0;
+}
+
+input[type="submit"] {
+	background:#cf6663;
+	color:#fff;
+	cursor:pointer;
+	display:inline-block;
+	font-family:inherit;
+	font-size:16px;
+	font-weight:100;
+	line-height:40px;
+	margin:10px 0;
+	padding:0 40px;
+	border-radius:100px;
+}
+
+input[type="submit"]:active {
+	position:relative;
+	top:2px;
+}
+
+.spacer {
+	padding:0 20px;
+}
+
+.error {
+	background:rgba(255,255,255,0.2);
+	border-radius:3px;
+	color:#fff;
+	font-weight:600;
+	padding:10px 0;
+	margin:10px 0;
+}
+
+#data {
+}
