@@ -42,82 +42,123 @@
 }
 
 /* Stepped Form Component */
-.stepped-form {
-	position:relative;
+.custom-form {
+	margin:0;
 	min-height:400px;
-	outline:solid 1px pink;
+	padding:0;
+	position:relative;
 	
-	.editable {
-		@include modular_scale("font-size",12); 
+	input {
+		background:transparent;
+		border:none;
+		@include modular_scale("font-size",16); 
 		font-weight:weight(bold);
-		@include modular_scale("line-height",10); 
+		padding:0;
+		@include modular_scale("line-height",16); 
 		letter-spacing:-0.020em;
 		
 		&:after {
+			background:rgba(255,255,255,0.2);
+			@include prefix("border-radius",4px);
+			color:colors(white);
 			content: attr(data);
-			display:block;
 			@include modular_scale("font-size",4);
+			letter-spacing:0;
+			@include modular_scale("line-height",4); 
+			display:block;
+			font-weight:weight(semibold);
+			@include modular_scale("margin",3 0);
+			opacity:0;
+			@include modular_scale("padding",3);
 		}
 	}
 	
-	.label {
+	.error {
+		&:after {
+			opacity: 1;
+			@include prefix('transform',translate3d(0,0,0));	
+		}
+	}
+	
+	label {
+		display:inline-block;
 		@include modular_scale("font-size",7); 
 		font-weight:weight(bold);
 		@include modular_scale("line-height",6);
 		letter-spacing:-0.020em;
 		
 		&:after {
-			position: relative;
-			display: inline-block;
-			margin:0 0 0 4px;
-			width: 20px;
 			border: 2px solid rgba(255,255,255,0.4);
+			@include prefix("border-radius",50%);
 			color: rgba(255,255,255,0.4);
-			border-radius: 50%;
 			content: 'i';
-			vertical-align: top;
-			text-align: center;
-			font-weight: 700;
+			cursor: pointer;
+			display: inline-block;
+			font-weight:weight(bold);
 			font-style: italic;
-			font-size: 16px;
+			@include modular_scale("font-size",4);
 			font-family: Georgia, serif;
 			line-height: 20px;
-			cursor: pointer;
+			@include modular_scale("margin",0 0 0 2);
 			pointer-events: auto;
+			position: relative;
+			text-align: center;
+			@include modular_scale("top",-1);
+			@include modular_scale("width",5);
 		}
 		
 		&:before {
-			position: absolute;
 			bottom: 100%;
-			left: 0;
-			padding: 0 0 10px;
-			min-width: 200px;
 			content: attr(data);
-			font-size: 0.4em;
-			color: #6a7b7e;
-			opacity: 1;
+			color: rgba(255,255,255,0.6);
+			left: 0;
+			@include modular_scale("font-size",4);
+			font-weight:weight(regular);
+			@include modular_scale("line-height",4);
+			@include modular_scale("padding",1 0);
+			pointer-events: none;
+			position: absolute;
+			opacity: 0;
 			-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
 			transition: opacity 0.3s, transform 0.3s;
 			-webkit-transform: translate3d(0,-5px,0);
 			transform: translate3d(0,-5px,0);
-			pointer-events: none;
+		}
+		
+		&:hover {
+			&::before {
+				opacity: 1;
+				@include prefix('transform',translate3d(0,0,0));
+			}
 		}
 	}
 	
-	.error {
-		color:colors(red);
-		font-weight:weight(bold);
-	}
-	.values {
-		@include modular_scale("margin",0 0 10 0);
+	.rows {
+		@include modular_scale("margin",0 0 8 0);
 	}
 	
-	.step {
+	li.active {
+		opacity:1;
+		@include prefix("transform",translate(0%, -50%));
+	}
+	
+	li {
 		left: 0px;
+		list-style-type:none;
+		margin:0;
+		opacity:0;
+		padding:0;
 		position:absolute;
 		top: 50%;
 		right:0px;
-		outline:solid 1px pink;
-		@include prefix("transform",translate(0%, -50%));
+		@include prefix("transform",translate(0%, 500%));
+		@include prefix("transition", all 1s ease);
 	}
+	
+	li.complete {
+		opacity:0;
+		@include prefix("transform",translate(0%, -1000%));
+	}
+	
+
 }

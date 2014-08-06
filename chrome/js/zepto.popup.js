@@ -79,7 +79,7 @@ $(document).ready(function(){
 
 			if(typeof dataURI !== "undefined"){	
 				image.onload = function() {
-					screenshot.ctx.drawImage(image, 0, 0, 1280, 768);
+					screenshot.ctx.drawImage(image, 0, 0, 1280, 800);
 	            	callback(true);
 				}
 				image.src = dataURI;
