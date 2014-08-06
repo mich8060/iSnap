@@ -15,6 +15,7 @@
 |
 */
 $config['base_url']	= 'http://localhost:8888/iSnap/';
+$config['api_key'] = 'D5YD5Y7v20o5j245X05v76vCj300ng0J';
 
 /*
 |--------------------------------------------------------------------------
@@ -224,7 +225,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'greed-avarice';
 
 /*
 |--------------------------------------------------------------------------

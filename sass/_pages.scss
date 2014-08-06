@@ -1,0 +1,9 @@
+#listing,
+#register {
+	@include modular_scale("padding",20 0 40 0);
+}
+
+#register {
+	background:colors(pink);
+	color:colors(white);
+}

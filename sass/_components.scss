@@ -40,3 +40,84 @@
 	@include modular_scale("padding",10 0 5 0);
 	text-align:center;
 }
+
+/* Stepped Form Component */
+.stepped-form {
+	position:relative;
+	min-height:400px;
+	outline:solid 1px pink;
+	
+	.editable {
+		@include modular_scale("font-size",12); 
+		font-weight:weight(bold);
+		@include modular_scale("line-height",10); 
+		letter-spacing:-0.020em;
+		
+		&:after {
+			content: attr(data);
+			display:block;
+			@include modular_scale("font-size",4);
+		}
+	}
+	
+	.label {
+		@include modular_scale("font-size",7); 
+		font-weight:weight(bold);
+		@include modular_scale("line-height",6);
+		letter-spacing:-0.020em;
+		
+		&:after {
+			position: relative;
+			display: inline-block;
+			margin:0 0 0 4px;
+			width: 20px;
+			border: 2px solid rgba(255,255,255,0.4);
+			color: rgba(255,255,255,0.4);
+			border-radius: 50%;
+			content: 'i';
+			vertical-align: top;
+			text-align: center;
+			font-weight: 700;
+			font-style: italic;
+			font-size: 16px;
+			font-family: Georgia, serif;
+			line-height: 20px;
+			cursor: pointer;
+			pointer-events: auto;
+		}
+		
+		&:before {
+			position: absolute;
+			bottom: 100%;
+			left: 0;
+			padding: 0 0 10px;
+			min-width: 200px;
+			content: attr(data);
+			font-size: 0.4em;
+			color: #6a7b7e;
+			opacity: 1;
+			-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+			transition: opacity 0.3s, transform 0.3s;
+			-webkit-transform: translate3d(0,-5px,0);
+			transform: translate3d(0,-5px,0);
+			pointer-events: none;
+		}
+	}
+	
+	.error {
+		color:colors(red);
+		font-weight:weight(bold);
+	}
+	.values {
+		@include modular_scale("margin",0 0 10 0);
+	}
+	
+	.step {
+		left: 0px;
+		position:absolute;
+		top: 50%;
+		right:0px;
+		outline:solid 1px pink;
+		@include prefix("transform",translate(0%, -50%));
+	}
+}

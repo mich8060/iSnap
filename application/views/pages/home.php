@@ -7,19 +7,7 @@
 </head>
 <body>
 <article>
-	<header>
-		<a href="#" class="brand"></a>
-		<nav>
-			<a href="#">Recent</a>
-			<a href="#">Popular</a>
-			<a href="#">People</a>
-			<a href="#">Teams</a>
-		</nav>
-		<menu>
-			
-		</menu>
-		<div class="clear"></div>
-	</header>
+
 	<section class="intro">
 		<div class="outer-container">
 			<h1 class="light">The fastest and easiest way to visually bookmark your favorites sites while surfing the web</h1>
@@ -29,7 +17,6 @@
 			</p>
 		</div>
 	</section>
-	<main>
 		<div class="listing">
 			<div class="inner-container">
 				<div class="grid_1 fluff">
@@ -74,8 +61,3 @@
 				<a href="#" class="button white">Next</a>
 			</div>
 		</div>
-	</main>
-	<footer></footer>
-</article>
-</body>
-</html>
