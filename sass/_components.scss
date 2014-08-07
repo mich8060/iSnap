@@ -44,7 +44,7 @@
 /* Stepped Form Component */
 .custom-form {
 	margin:0;
-	min-height:400px;
+	min-height:300px;
 	padding:0;
 	position:relative;
 	
@@ -56,28 +56,32 @@
 		padding:0;
 		@include modular_scale("line-height",16); 
 		letter-spacing:-0.020em;
-		
-		&:after {
-			background:rgba(255,255,255,0.2);
-			@include prefix("border-radius",4px);
-			color:colors(white);
-			content: attr(data);
-			@include modular_scale("font-size",4);
-			letter-spacing:0;
-			@include modular_scale("line-height",4); 
-			display:block;
+	}
+	
+	.clue {
+		color:#999;
+		font-weight:weight(regular);
+		span {
+			color:colors(black);
 			font-weight:weight(semibold);
-			@include modular_scale("margin",3 0);
-			opacity:0;
-			@include modular_scale("padding",3);
 		}
 	}
 	
-	.error {
-		&:after {
-			opacity: 1;
-			@include prefix('transform',translate3d(0,0,0));	
-		}
+	.error {	
+		color:colors(red);
+		@include modular_scale("font-size",4);
+		letter-spacing:0;
+		@include modular_scale("line-height",4); 
+		font-weight:weight(semibold);
+		@include modular_scale("margin",3 0);
+		opacity:0;
+		position: absolute;
+		-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+		   -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+				transition: opacity 0.3s, transform 0.3s;
+		-webkit-transform: translate3d(0,-4px,0);
+		   -moz-transform: translate3d(0,-4px,0);
+				transform: translate3d(0,-4px,0);
 	}
 	
 	label {
@@ -88,9 +92,9 @@
 		letter-spacing:-0.020em;
 		
 		&:after {
-			border: 2px solid rgba(255,255,255,0.4);
+			border: 2px solid rgba(0,0,0,0.4);
 			@include prefix("border-radius",50%);
-			color: rgba(255,255,255,0.4);
+			color: rgba(0,0,0,0.4);
 			content: 'i';
 			cursor: pointer;
 			display: inline-block;
@@ -110,7 +114,7 @@
 		&:before {
 			bottom: 100%;
 			content: attr(data);
-			color: rgba(255,255,255,0.6);
+			color: rgba(0,0,0,0.6);
 			left: 0;
 			@include modular_scale("font-size",4);
 			font-weight:weight(regular);
@@ -120,9 +124,11 @@
 			position: absolute;
 			opacity: 0;
 			-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-			transition: opacity 0.3s, transform 0.3s;
-			-webkit-transform: translate3d(0,-5px,0);
-			transform: translate3d(0,-5px,0);
+			   -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+					transition: opacity 0.3s, transform 0.3s;
+			-webkit-transform: translate3d(0,-4px,0);
+			   -moz-transform: translate3d(0,-4px,0);
+					transform: translate3d(0,-4px,0);
 		}
 		
 		&:hover {
@@ -134,30 +140,26 @@
 	}
 	
 	.rows {
-		@include modular_scale("margin",0 0 8 0);
+		@include modular_scale("margin",0 0 14 0);
 	}
 	
 	li.active {
-		opacity:1;
-		@include prefix("transform",translate(0%, -50%));
+		display:block;
 	}
 	
 	li {
 		left: 0px;
 		list-style-type:none;
 		margin:0;
-		opacity:0;
+		display:none;
 		padding:0;
 		position:absolute;
 		top: 50%;
 		right:0px;
-		@include prefix("transform",translate(0%, 500%));
-		@include prefix("transition", all 1s ease);
 	}
 	
 	li.complete {
-		opacity:0;
-		@include prefix("transform",translate(0%, -1000%));
+		display:none;
 	}
 	
 
