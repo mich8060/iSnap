@@ -2,6 +2,7 @@
 	<div class="outer-container">
 		<div class="grid_1">
 			<form method="post" action="" autocomplete="off">
+				<div><strong>Question X of Y</strong></div>
 				<ul class="custom-form">
 					<li class="active">
 						<div class="rows">

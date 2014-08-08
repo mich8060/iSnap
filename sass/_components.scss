@@ -4,6 +4,7 @@
 	@include modular_scale("padding",40 0 20 0);
 	@include modular_scale("margin", 0 0 10 0);
 	text-align:center;
+	@include prefix('box-sizing',border-box);
 	
 	p {
 		@include modular_scale("margin", 10 0);
@@ -37,14 +38,14 @@
 }
 
 .pagination {
-	@include modular_scale("padding",10 0 5 0);
+	@include modular_scale("padding",10 0);
 	text-align:center;
 }
 
 /* Stepped Form Component */
 .custom-form {
 	margin:0;
-	min-height:300px;
+	min-height:200px;
 	padding:0;
 	position:relative;
 	
@@ -56,6 +57,13 @@
 		padding:0;
 		@include modular_scale("line-height",16); 
 		letter-spacing:-0.020em;
+	}
+	
+	@include breakpoint(mobile) {
+		input {
+			@include modular_scale("font-size",8);
+			@include modular_scale("line-height",8);
+		}
 	}
 	
 	.clue {
@@ -102,13 +110,25 @@
 			font-style: italic;
 			@include modular_scale("font-size",4);
 			font-family: Georgia, serif;
-			line-height: 20px;
+			@include modular_scale("line-height",5);
 			@include modular_scale("margin",0 0 0 2);
 			pointer-events: auto;
 			position: relative;
 			text-align: center;
 			@include modular_scale("top",-1);
 			@include modular_scale("width",5);
+		}
+		
+		@include breakpoint(mobile) {
+			&:after {
+				border:none;
+				background:rgba(0,0,0,0.4);
+					color:#fff;
+				@include modular_scale("font-size",3);
+				@include modular_scale("line-height",4);
+				top:-4px;
+				@include modular_scale("width",4);
+			}
 		}
 		
 		&:before {
@@ -139,6 +159,15 @@
 		}
 	}
 	
+	@include breakpoint(mobile) {
+		label {
+			@include modular_scale("font-size",4);
+			@include modular_scale("line-height",3);
+		}
+	}
+	
+	
+	
 	.rows {
 		@include modular_scale("margin",0 0 14 0);
 	}
@@ -161,6 +190,10 @@
 	li.complete {
 		display:none;
 	}
-	
+}
 
+@include breakpoint(mobile) {
+	.custom-form {
+		min-height:100px;
+	}
 }

@@ -51,6 +51,12 @@ nav {
 	}
 }
 
+@include breakpoint(mobile) {
+	nav {
+		display:none;
+	}
+}
+
 footer {
 	background:#fff;
 	border-top:solid 1px #eee;

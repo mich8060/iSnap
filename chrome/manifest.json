@@ -1,6 +1,6 @@
 {
-	"name": "Snap.me",
-	"description": "The fastest and easiest way to visually bookmark your favorites while surfing the Web.",
+	"name": "Michael Stevens",
+	"description": "This extension captures screen shots",
 	"version": "0.1",
   	"manifest_version": 2,
   	"browser_action": {
