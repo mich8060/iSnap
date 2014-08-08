@@ -1,6 +1,6 @@
 <section class="intro">
 	<div class="outer-container">
-		<h1 class="light">The fastest and easiest way to visually bookmark your favorites sites while surfing the web</h1>
+		<h1 class="light">The fastest and easiest way to visually bookmark</h1>
 		<p>
 			<a href="#" class="button white">Getting Started</a>
 			<a href="#" class="button white-outline">Sign In</a>
@@ -23,6 +23,6 @@
 	</div>
 	<div class="clear"></div>
 	<div class="pagination">
-		<a href="#" class="button black">Next</a>
+		<a href="<? echo base_url()."page/1" ?>" class="button black">Next</a>
 	</div>
 </div>

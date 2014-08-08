@@ -1,24 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Michael Stevens</title>
-<style>
-
-body {
-	min-width: 240px;
-	overflow-x: hidden;
-}
-img {
-	width:100%;
-}
-
-</style>
+<title>iSnap</title>
+<link rel="stylesheet" href="http://localhost:8888/iSnap/css/screen.css" />
+<link rel="stylesheet" href="http://localhost:8888/iSnap/css/popup.css" />
 <script src="popup.js"></script>
 </head>
 <body>
-<form method="post" action="http://localhost:8888/core/forms/sites">
-	<input type="text" name="url" id="url" placeholder="url" />
-	<textarea name="image" id="image" cols="30" rows="10"></textarea>
-	<input type="submit" value="submit" />
+<article>
+	<a href="http://www.isnap.me" target="_blank" class="branding"><img src="img/branding.jpg" alt="" /></a>
+	<section id="wrapper">
+		<section id="login">
+			<form action="">
+				<label for="">
+					<div class="label">Email Address</div>
+					<input type="text" placeholder="yourname@example.com" />
+				</label>
+				<label for="">
+					<div class="label">Password</div>
+					<a href="http://www.isnap.me/forgot" target="_blank" class="forgot">Forgot?</a>
+					<input type="text" placeholder="password" />
+					<a href="#" class="toggle-password">Hide Password</a>
+				</label>
+				<p>
+					<input type="submit" value="Sign In" class="black-outline" />
+				</p>
+				<a href="http://www.isnap.me/signup" target="_blank" class="request">Request a membership?</a>
+			</form>
+		</section>
+		<section id="capture">
+
+		</section>
+		<section id="hidden-data">
+			<form id="data" method="post" action="http://localhost:8888/core/forms/sites">
+				<input type="text" name="user" id="user" />
+				<input type="text" name="key" id="key" />
+				<input type="text" name="url" id="url" placeholder="url" />
+				<input type="text" name="name" id="name" placeholder="name" />
+				<input type="text" name="title" id="title" placeholder="title" />
+				<textarea name="description" id="description" cols="30" rows="5" placeholder="Description"></textarea>
+				<textarea name="keywords" id="keywords" cols="30" rows="5" placeholder="Keywords"></textarea>
+				<textarea name="author" id="author" cols="30" rows="5" placeholder="Author"></textarea>
+				<textarea name="image" id="image" cols="30" rows="5" placeholder="Image"></textarea>
+				<textarea name="debug" id="debug" cols="30" rows="5" placeholder="Debug"></textarea>
+			</form>
+		</section>
+	</section>
+</article>
+
+
 </body>
 </html>

@@ -14,5 +14,10 @@
 			</a>
 		</div>	
 		<? } ?>
+		<div class="clear"></div>
+		<div class="pagination">
+			<a href="<? echo base_url(); ?>" class="button black">Previous</a>
+			<a href="<? echo base_url()."page/1"; ?>" class="button black">Next</a>
+		</div>
 	</div>
 </div>
