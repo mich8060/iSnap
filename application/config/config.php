@@ -14,7 +14,8 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost:8888/iSnap/';
+$config['base_url']	= 'http://localhost:8888/isnap/';
+$config['api_url']	= 'http://localhost:8888/isnap_api/';
 $config['api_key'] = 'D5YD5Y7v20o5j245X05v76vCj300ng0J';
 
 /*

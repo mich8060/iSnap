@@ -13,7 +13,10 @@
 		<div class="grid_2 fluff">
 			<a href="<? echo $d->url ?>" class="listing-block">
 				<img src="<? echo $d->image ?>" alt="" />
+				<div class="direct"><span class="icons">&#10150;</span></div>
+				<div class="details"><span class="icons">&#57349;</span></div>
 				<div class="info">
+					<div class="blur"><img src="<? echo $d->image ?>" alt="" /></div>
 					<span><span class="icons">&#59146;</span> 1,000</span>
 					<span><span class="icons">&hearts;</span> 1,000</span>
 				</div>
@@ -25,4 +28,5 @@
 	<div class="pagination">
 		<a href="<? echo base_url()."page/1" ?>" class="button black">Next</a>
 	</div>
+	<div class="clear"></div>
 </div>

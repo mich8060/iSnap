@@ -17,7 +17,7 @@
 	overflow:hidden;
 	position:relative;
 	@include prefix('border-radius', 3px);
-	@include prefix('box-shadow', 0 0 3px rgba(0,0,0,0.1));
+	@include prefix('box-shadow', 0 0 3px rgba(0,0,0,0.4));
 	@include prefix('transition', all 0.3s ease);
 	
 	&:hover {
@@ -25,15 +25,45 @@
 		@include prefix('box-shadow', 0 0 10px rgba(0,0,0,0.4));
 	}
 	
+	.direct {
+		background:rgba(34,34,34,0.9);
+		position:absolute;
+		top:10px;
+		right:10px;
+		@include prefix('border-radius', 50%);
+	}
+	
+	.details {
+		background:rgba(34,34,34,0.9);
+		position:absolute;
+		top:40px;
+		right:10px;
+		text-align:center;
+		width:28px;
+		@include prefix('border-radius', 50%);
+	}
+	
 	.info {
-		/* IE9 SVG, needs conditional override of 'filter' to 'none' */
-		background: rgba(0,0,0,0.5);
+		background:rgba(0,0,0,0.6);
 		bottom:0px;
-		left:0px;
+		color:colors(white);
 		@include modular_scale("font-size",3);
-		@include modular_scale("padding",2);
+		left:0px;
+		overflow:hidden;
+		@include modular_scale("padding", 2);
 		position:absolute;
 		right:0px;
+		text-align:right;
+		
+		.blur {
+			bottom:1px;
+			left:0px;
+			opacity:0.4;
+			position:absolute;
+			right:0px;
+			@include prefix("filter",blur(5px));
+		}
+		
 	}
 }
 

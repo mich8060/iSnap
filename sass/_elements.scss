@@ -182,7 +182,8 @@ form label {
 textarea {
 	background:#fff;
 	border:solid 1px #ccc;
-	@include modular_scale("font-size", 5);
+	@include modular_scale("font-size", 4);
+	font-weight:weight(semibold);
 	@include modular_scale("min-height", 30);
 	@include modular_scale("padding", 3);
 	resize: none;

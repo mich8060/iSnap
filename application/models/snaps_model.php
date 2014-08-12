@@ -19,24 +19,43 @@ class Snaps_model extends CI_Model {
 		$data = base64_decode($img);
 		$file = 'img/snaps/' . uniqid() . '.png';
 		file_put_contents($file, $data);
+		
+		$ch = curl_init();
+		$url = 'http://pictaculous.com/api/1.0/';
+		$fields = array('image'=>file_get_contents($file));
+		# Set some default CURL options
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+		curl_setopt($ch, CURLOPT_HEADER, false);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_POST, true);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
+		curl_setopt($ch, CURLOPT_URL, $url);
+		$json = curl_exec($ch);
+		$json = json_decode($json);
+		$colors = implode(",", $json->info->colors);
+		
 		$this->db->query(
 			"INSERT INTO snaps (
 				image,
 				url,
+				name,
+				colors,
 				date
 			) 
 			VALUES(
 				'".$file."',
 				'".$obj['url']."',
+				'".$obj['name']."',
+				'".$colors."',
 				'".date('Y-m-d H:i:s')."'
 			)"
 		);
 	}
 	
 	function read() {
-		$query = $this->db->query(
-				'SELECT * FROM snaps'
-		);
+		$query = $this->db->query('SELECT * FROM snaps');
 		if($query->num_rows() > 0) {
 			foreach($query->result() as $row){
 				$data[] = $row;
@@ -46,17 +65,7 @@ class Snaps_model extends CI_Model {
 	}
 	
 	function find($params, $limit) {
-		$query = $this->db->query(
-				'SELECT articles.*, 
-						profiles.*,
-						categories.name, 
-						simpleurl.url 
-				 FROM articles 
-				 JOIN profiles ON articles.profile_id=profiles.id 
-				 JOIN simpleurl ON articles.simple_id=simpleurl.id 
-				 JOIN categories ON articles.cat_id=categories.id 
-				 WHERE articles.'.$params.' = "'.$limit.'"'
-		);
+		$query = $this->db->query('');
 		if($query->num_rows() > 0) {
 			foreach($query->result() as $row){
 				$data[] = $row;
@@ -66,17 +75,7 @@ class Snaps_model extends CI_Model {
 	}
 	
 	function latest() {
-		$query = $this->db->query(
-				'SELECT articles.*, 
-						profiles.*,
-						categories.name, 
-						simpleurl.url 
-				 FROM articles 
-				 JOIN profiles ON articles.profile_id=profiles.id 
-				 JOIN simpleurl ON articles.simple_id=simpleurl.id 
-				 JOIN categories ON articles.cat_id=categories.id 
-				 ORDER BY articles.id DESC LIMIT 1'
-		);
+		$query = $this->db->query('');
 		if($query->num_rows() > 0) {
 			foreach($query->result() as $row){
 				$data[] = $row;
@@ -86,16 +85,7 @@ class Snaps_model extends CI_Model {
 	}
 	
 	function recent(){
-		$query = $this->db->query(
-				'SELECT articles.*, 
-						profiles.*, 
-						categories.name,
-						simpleurl.url 
-				 FROM articles JOIN profiles ON articles.profile_id=profiles.id 
-				 JOIN simpleurl ON articles.simple_id=simpleurl.id 
-				 JOIN categories ON articles.cat_id=categories.id 
-				 ORDER BY articles.id DESC LIMIT 5'
-		);
+		$query = $this->db->query('');
 		if($query->num_rows() > 0) {
 			foreach($query->result() as $row){
 				$data[] = $row;
@@ -117,16 +107,7 @@ class Snaps_model extends CI_Model {
 	}
 	
 	function range($offset, $limit){
-		$query = $this->db->query(
-				'SELECT articles.*, 
-						profiles.*, 
-						categories.name,
-						simpleurl.url 
-				 FROM articles JOIN profiles ON articles.profile_id=profiles.id 
-				 JOIN simpleurl ON articles.simple_id=simpleurl.id 
-				 JOIN categories ON articles.cat_id=categories.id 
-				 ORDER BY articles.id DESC LIMIT '.$offset.','.$limit
-		);
+		$query = $this->db->query('');
 		if($query->num_rows() > 0) {
 			foreach($query->result() as $row){
 				$data[] = $row;

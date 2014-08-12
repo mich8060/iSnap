@@ -2,15 +2,14 @@
 <html>
 <head>
 <title>iSnap</title>
-<link rel="stylesheet" href="http://localhost:8888/iSnap/css/screen.css" />
-<link rel="stylesheet" href="http://localhost:8888/iSnap/css/popup.css" />
-<script src="popup.js"></script>
+<link rel="stylesheet" href="css/screen.css" />
+<link rel="stylesheet" href="http://localhost:8888/isnap/css/popup.css" />
 </head>
 <body>
 <article>
 	<a href="http://www.isnap.me" target="_blank" class="branding"><img src="img/branding.jpg" alt="" /></a>
 	<section id="wrapper">
-		<section id="login">
+		<section id="signin">
 			<form action="">
 				<label for="">
 					<div class="label">Email Address</div>
@@ -33,8 +32,8 @@
 		</section>
 		<section id="hidden-data">
 			<form id="data" method="post" action="http://localhost:8888/core/forms/sites">
-				<input type="text" name="user" id="user" />
-				<input type="text" name="key" id="key" />
+				<input type="text" name="user" id="user" placeholder="user" />
+				<input type="text" name="key" id="key" placeholder="key" />
 				<input type="text" name="url" id="url" placeholder="url" />
 				<input type="text" name="name" id="name" placeholder="name" />
 				<input type="text" name="title" id="title" placeholder="title" />
@@ -47,7 +46,7 @@
 		</section>
 	</section>
 </article>
-
-
+<script src="js/zepto.min.js"></script>
+<script src="js/zepto.popup.js"></script>
 </body>
 </html>
