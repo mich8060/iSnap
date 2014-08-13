@@ -13,6 +13,9 @@ class Snaps_model extends CI_Model {
 	}
 	
 	function add($obj) {
+		
+		$this->load->library('simple_html_dom');
+		
 		$img = $_POST['image'];
 		$img = str_replace('data:image/png;base64,', '', $img);
 		$img = str_replace(' ', '+', $img);
@@ -23,6 +26,7 @@ class Snaps_model extends CI_Model {
 		$ch = curl_init();
 		$url = 'http://pictaculous.com/api/1.0/';
 		$fields = array('image'=>file_get_contents($file));
+		
 		# Set some default CURL options
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 		curl_setopt($ch, CURLOPT_HEADER, false);
@@ -32,23 +36,38 @@ class Snaps_model extends CI_Model {
 		curl_setopt($ch, CURLOPT_POST, true);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
 		curl_setopt($ch, CURLOPT_URL, $url);
+		
 		$json = curl_exec($ch);
 		$json = json_decode($json);
 		$colors = implode(",", $json->info->colors);
 		
+		$raw = file_get_html($obj['url']);
+		$keywords = $raw->find("meta[name=keywords]");
+		$keywords = $keywords[0]->content;
+		$description = $raw->find("meta[name=description]");
+		$description = $description[0]->content;
+		
+		$parse = parse_url($obj['url']);
+		$host =  $parse['host'];
+		$host = str_replace("www.", "", $host);
+
 		$this->db->query(
 			"INSERT INTO snaps (
 				image,
 				url,
 				name,
 				colors,
+				keywords,
+				description,
 				date
 			) 
 			VALUES(
 				'".$file."',
 				'".$obj['url']."',
-				'".$obj['name']."',
+				'".$host."',
 				'".$colors."',
+				'".$keywords."',
+				'".$description."',
 				'".date('Y-m-d H:i:s')."'
 			)"
 		);

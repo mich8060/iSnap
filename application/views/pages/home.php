@@ -11,12 +11,12 @@
 	<div class="wide-container">
 		<? foreach($data as $d) { ?>
 		<div class="grid_2 fluff">
-			<a href="<? echo $d->url ?>" class="listing-block">
+			<a href="<? echo $d->url ?>" target="_blank" class="listing-block">
 				<img src="<? echo $d->image ?>" alt="" />
 				<div class="direct"><span class="icons">&#10150;</span></div>
 				<div class="details"><span class="icons">&#57349;</span></div>
 				<div class="info">
-					<div class="blur"><img src="<? echo $d->image ?>" alt="" /></div>
+						<img src="http://www.w3schools.com/favicon.ico" class="favicon" />
 					<span><span class="icons">&#59146;</span> 1,000</span>
 					<span><span class="icons">&hearts;</span> 1,000</span>
 				</div>

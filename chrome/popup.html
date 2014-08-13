@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="http://localhost:8888/isnap/css/popup.css" />
 </head>
 <body>
+<script src="popup.js"></script>
 <article>
 	<a href="http://www.isnap.me" target="_blank" class="branding"><img src="img/branding.jpg" alt="" /></a>
 	<section id="wrapper">
@@ -28,25 +29,17 @@
 			</form>
 		</section>
 		<section id="capture">
-
+			Snapping Screen...
 		</section>
 		<section id="hidden-data">
 			<form id="data" method="post" action="http://localhost:8888/core/forms/sites">
 				<input type="text" name="user" id="user" placeholder="user" />
 				<input type="text" name="key" id="key" placeholder="key" />
 				<input type="text" name="url" id="url" placeholder="url" />
-				<input type="text" name="name" id="name" placeholder="name" />
-				<input type="text" name="title" id="title" placeholder="title" />
-				<textarea name="description" id="description" cols="30" rows="5" placeholder="Description"></textarea>
-				<textarea name="keywords" id="keywords" cols="30" rows="5" placeholder="Keywords"></textarea>
-				<textarea name="author" id="author" cols="30" rows="5" placeholder="Author"></textarea>
 				<textarea name="image" id="image" cols="30" rows="5" placeholder="Image"></textarea>
-				<textarea name="debug" id="debug" cols="30" rows="5" placeholder="Debug"></textarea>
 			</form>
 		</section>
 	</section>
 </article>
-<script src="js/zepto.min.js"></script>
-<script src="js/zepto.popup.js"></script>
 </body>
 </html>
