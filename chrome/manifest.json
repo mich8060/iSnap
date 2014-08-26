@@ -1,18 +1,18 @@
 {
-	"name": "Michael Stevens",
-	"description": "This extension captures screen shots",
-	"version": "0.1",
+	"name": "iSnap",
+  	"version": "0.3.0",
   	"manifest_version": 2,
+  	"description": "Screen capture your current page in entirety and reliably!",
   	"browser_action": {
     	"default_icon": "img/icon.png",
     	"default_popup": "popup.html"
   	},
   	"permissions": [
-    	"tabs",
-    	"http://*/*",
-    	"https://*/*",
-    	"<all_urls>",
-    	"notifications"
+      	"tabs",
+      	"http://*/*",
+      	"https://*/*",
+      	"<all_urls>",
+      	"notifications"
   	],
   	"icons": {
     	"16": "img/icon16.png",

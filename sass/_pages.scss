@@ -1,7 +1,8 @@
 #listing,
 #register,
-#guide {
-	@include modular_scale("padding",20 0 50 0);
+#guide,
+#snap {
+	@include modular_scale("padding",14 0 50 0);
 }
 
 #register {

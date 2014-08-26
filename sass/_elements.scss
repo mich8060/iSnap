@@ -150,32 +150,51 @@ form label {
 
 /* Icons */
 
-.icons {
+.icons,
+.icons-small,
+.icons-medium,
+.icons-large {
 	display:inline-block;
 	font-family:"Entypo";
-	@include modular_scale("font-size",9);
-	@include modular_scale("line-height",5); 
-	@include modular_scale("margin", 0 1 0 0);
+	font-size:32px;
+	line-height:16px;
+	margin:0 4px 0 0;
+	padding:0;
 	position:relative;
+	text-align:center;
 	top:2px;
-	@include modular_scale("width",5);
+	width:16px;
 }
+
+.icons-small {
+	font-size:32px;
+	line-height:16px;
+	top:2px;
+	width:16px;
+}
+
+.icons-medium {
+	font-size:48px;
+	line-height:24px;
+	top:4px;
+	width:24px;
+}
+
+.icons-large {
+	font-size:60px;
+	line-height:24px;
+	top:4px;
+	width:30px;
+}
+
 .icons-social {
 	display:inline-block;
 	font-family:"EntypoSocial";
-	@include modular_scale("font-size",9);
-	@include modular_scale("line-height",5); 
-	@include modular_scale("margin", 0 1 0 0);
+	font-size:32px;
+	line-height:16px;
+	margin:0 4px 0 0;
 	position:relative;
-	top:2px;
-	@include modular_scale("width",5);
-}
-
-
-.hint .icons {
-	@include modular_scale("font-size",7);
-	@include modular_scale("width",4); 
-	margin:0;
+	width:16px;
 }
 
 /* Textarea */

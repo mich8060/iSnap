@@ -1,28 +1,35 @@
+<pre style="color:#fff;display:none;">
+	<? print_r($data); ?>
+</pre>
 <section class="intro">
 	<div class="outer-container">
-		<h1 class="light">The fastest and easiest way to visually bookmark</h1>
+		<h1 class="light">The fastest and easiest way for designers to bookmark, save, and share the sites that inspire us.</h1>
 		<p>
-			<a href="#" class="button white">Getting Started</a>
-			<a href="#" class="button white-outline">Sign In</a>
+			<a href="#" class="button black">Getting Started</a>
+			<a href="#" class="button white">Sign In</a>
 		</p>
 	</div>
 </section>
 <div class="listing">
-	<div class="wide-container">
+	<div class="full-container">
 		<? foreach($data as $d) { ?>
 		<div class="grid_2 fluff">
-			<a href="<? echo $d->url ?>" target="_blank" class="listing-block">
-				<img src="<? echo $d->image ?>" alt="" />
-				<div class="direct"><span class="icons">&#10150;</span></div>
-				<div class="details"><span class="icons">&#57349;</span></div>
+			<a href="<? echo $d->url ?>" class="listing-block">
+				<div class="snap" style="background-image:url(<? echo base_url().$d->image ?>)">
+					<img src="<? echo base_url(); ?>img/snaps/100x61.png" alt="" />
+				</div>
 				<div class="info">
-						<img src="http://www.w3schools.com/favicon.ico" class="favicon" />
-					<span><span class="icons">&#59146;</span> 1,000</span>
-					<span><span class="icons">&hearts;</span> 1,000</span>
+					<div class="title"><? echo $d->name; ?></div>
+					<div class="link"><span class="icons">&#10145;</span></div>
+					<div class="details"><span class="icons">&#57349;</span></div>
+					<span><span class="icons">&#59146;</span> 100</span>
+					<span><span class="icons">&#59160;</span> 10</span>
+					<span><span class="icons">&hearts;</span> 100</span>
 				</div>
 			</a>
 		</div>	
 		<? } ?>
+		<div class="clear"></div>
 	</div>
 	<div class="clear"></div>
 	<div class="pagination">

@@ -41,6 +41,8 @@
 $route['default_controller'] = "site";
 $route['404_override'] = '';
 $route['forms/(:any)'] = 'forms';
+$route['tools/(:any)'] = 'tools';
+$route['snap/(:any)'] = '';
 $route['page/(:any)'] = '';
 $route['services/(:any)'] = 'services';
 $route['(:any)'] = 'site';

@@ -20,6 +20,10 @@
 }
 
 @include breakpoint(mobile) {
+	.full-container {
+		@include modular_scale("padding", 0);
+		@include modular_scale("margin", 0 3);
+	}
 	.wide-container {
 		@include modular_scale("padding", 0 2);
 	}

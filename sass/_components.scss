@@ -1,6 +1,9 @@
 .intro {
-	background:#f2726d;
-	color:colors(white);
+	background:colors(white) url(../img/layout/intro_bg.jpg);
+	background-size:400px 300px;
+	background-attachment:fixed;
+	border-bottom:solid 1px #eee;
+	color:colors(black);
 	@include modular_scale("padding",40 0 20 0);
 	@include modular_scale("margin", 0 0 10 0);
 	text-align:center;
@@ -12,75 +15,172 @@
 }
 
 .listing-block {
+	background:colors(white);
+	border:solid 1px #ddd;
 	color:#fff;
 	display:block;
 	overflow:hidden;
 	position:relative;
 	@include prefix('border-radius', 3px);
-	@include prefix('box-shadow', 0 0 3px rgba(0,0,0,0.4));
-	@include prefix('transition', all 0.3s ease);
 	
-	&:hover {
-		color:#fff;
-		@include prefix('box-shadow', 0 0 10px rgba(0,0,0,0.4));
+	.snap {
+		background-color:#000;
+		background-repeat:no-repeat;
+		background-size:100% auto;
+		img {
+			opacity:0;
+		}
 	}
-	
-	img {
-		max-height:311px;
-	}
-	
-	.direct {
-		background:rgba(34,34,34,0.9);
-		position:absolute;
-		top:10px;
-		right:10px;
-		@include prefix('border-radius', 50%);
-	}
-	
-	.details {
-		background:rgba(34,34,34,0.9);
-		position:absolute;
-		top:40px;
-		right:10px;
-		text-align:center;
-		width:28px;
-		@include prefix('border-radius', 50%);
-	}
-	
+
 	.info {
-		background:rgba(0,0,0,0.6);
-		bottom:0px;
-		color:colors(white);
+		border-top:solid 1px #ddd;
+		color:colors(black);
+		display:block;
 		@include modular_scale("font-size",3);
-		left:0px;
-		overflow:hidden;
 		@include modular_scale("padding", 2);
-		position:absolute;
-		right:0px;
 		text-align:right;
 		
-		.blur {
-			bottom:1px;
-			left:0px;
-			opacity:0.8;
-			position:absolute;
-			right:0px;
-			@include prefix("filter",blur(3px));
-		}
-		
-		.favicon {
+		.title {
+			color:#ccc;
 			float:left;
-			width:16px;
-			opacity:1;
+			overflow: hidden;
+			text-align:left;
+			text-overflow: ellipsis;
+		  	white-space: nowrap;
+			width:50%;
 		}
 		
+		.link,
+		.details {
+			color:colors(black);
+			position:absolute;
+			text-align:center;
+			
+			.icons  {
+				background:rgba(255,255,255,0.95);
+				border:solid 1px #eee;
+				line-height:32px;
+				top:6px;
+				width:32px;
+				@include prefix('border-radius',50%);	
+			}
+		}
+		
+		.link {
+			top:48px;
+			right:8px;
+		}
+
+		.details {
+			top:8px;
+			right:8px;
+		}
 	}
+	
+	.actions {
+		.icons {
+			top:4px;
+			margin:0 2px 0 8px;
+		}
+	}
+	
+
 }
 
 .pagination {
 	@include modular_scale("padding",10 0);
 	text-align:center;
 }
+
+.palette {
+	background:colors(white);
+	overflow:hidden;
+	padding:0;
+	width:99%;
+	@include prefix('border-radius', 2px);
+	@include prefix('box-shadow', 0px 1px 2px 0px rgba(0,0,0,0.2));
+	
+	.name {
+		color:#ccc;
+		@include prefix('box-shadow', 0 1px 8px 0 rgba(0,0,0,0.5));
+		@include modular_scale("font-size",3);
+		@include modular_scale("padding",2 3);
+		position:relative;
+		z-index:9;
+	}
+	
+	.swatches {
+		display:block;
+		height:40px;
+		float:left;
+		width:20%;
+	}
+}
+
+.snapshot {
+	border:solid 1px #eee;
+	display:block;
+}
+
+.previews {
+	a {
+		border:solid 1px #eee;
+		display:inline-block;
+		@include modular_scale("margin",0 2 0 0);
+		position:relative;
+		
+		span {
+			background:rgba(255,255,255,0.95);
+			border-top:solid 1px #eee;
+			color:colors(black);
+			display:block;
+			@include modular_scale("font-size",3);
+			font-weight:weight(bold);
+			@include modular_scale("line-height",3);
+			@include modular_scale("padding",1 2);
+			text-align:center;
+		}
+	}
+}
+
+.keywords {
+	.keyword {
+		background:colors(black);
+		color:colors(white);
+		display:inline-block;
+		float:left;
+		margin:0 4px 4px 0;
+		padding:0 12px;
+		@include prefix('border-radius', 20px);
+	}
+}
+
+.wallpaper {
+	background:colors(white);
+	color:colors(black);
+	@include modular_scale("padding", 26 5 5 5);
+	position:relative;
+	
+	.bg {
+		background:colors(pink);
+		height:200px;
+		left:0;
+		position:absolute;
+		overflow:hidden;
+		top:0;
+		right:0;
+	}
+	
+	.circle {
+		display:inline-block;
+		@include modular_scale("margin", 6 4 4 4);
+		overflow:hidden;
+		max-width:120px;
+		@include prefix('border-radius', 50%);
+	}
+}
+
+
 
 /* Stepped Form Component */
 .custom-form {

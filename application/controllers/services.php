@@ -27,14 +27,12 @@ class Services extends CI_Controller {
 					$this->build($data);
 				}elseif($data[3] == "page"){
 					if(isset($data[4]) && isset($data[5])){
-						$offset = $data[4];
-						$limit = $data[5];
-						$params = mysql_real_escape_string(strtolower($data[4]));
+						$offset = mysql_real_escape_string(strtolower($data[4]));
 						$limit = mysql_real_escape_string(strtolower($data[5]));
-						$data = $this->$model->range($offset, $limit);
+						$data = $this->$model->page($offset, $limit);
 						$this->build($data);
 					}elseif(!isset($data[4]) && !isset($data[5])){
-						$data = $this->$model->range(0, 20);
+						$data = $this->$model->page(0, 12);
 						$this->build($data);
 					}else{
 						show_404('/this_page_was_not_found', FALSE);

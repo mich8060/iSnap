@@ -41,7 +41,7 @@ class Site extends CI_Controller {
 			foreach($models as $m){
 				// Create variables to make more accesable. 
 				$function = $m;
-				$data["data"] = $this->$model->$function($obj->id);
+				$data["data"] = $this->$model->$function(null, null);
 			}
 		}
 		

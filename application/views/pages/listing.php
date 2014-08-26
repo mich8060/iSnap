@@ -1,23 +1,41 @@
+<pre style="color:#fff;display:none;">
+	<? print_r($data); ?>
+</pre>
 <div id="listing">
-	<div class="outer-container">
-		<div class="grid_1">
-			<h1>Page <? echo $this->uri->segment(2); ?></h1>
-		</div>
-		<? foreach($data as $d) { ?>
-		<div class="grid_2 fluff">
-			<a href="<? echo $d->url ?>" class="listing-block">
-				<img src="<? echo base_url().$d->image ?>" alt="" />
-				<div class="info">
-					<span><span class="icons">&#59146;</span> 1,000</span>
-					<span><span class="icons">&hearts;</span> 1,000</span>
-				</div>
-			</a>
-		</div>	
+	<div class="full-container">
+		<? foreach($data[0]["snaps"] as $d) { ?>
+			<div class="grid_2 fluff">
+				<a href="<? echo base_url().$d->url ?>" class="listing-block">
+					<div class="snap" style="background-image:url(<? echo base_url().$d->image ?>)">
+						<img src="<? echo base_url(); ?>img/snaps/100x61.png" alt="" />
+					</div>
+					<div class="info">
+						<div class="title"><? echo $d->name; ?></div>
+						<div class="link"><span class="icons">&#10145;</span></div>
+						<div class="details"><span class="icons">&#57349;</span></div>
+						<div class="actions">
+							<span><span class="icons">&#59146;</span> 100</span>
+							<span><span class="icons">&#59160;</span> 10</span>
+							<span><span class="icons">&hearts;</span> 100</span>
+						</div>
+					</div>
+				</a>
+			</div>	
 		<? } ?>
 		<div class="clear"></div>
 		<div class="pagination">
-			<a href="<? echo base_url(); ?>" class="button black">Previous</a>
-			<a href="<? echo base_url()."page/1"; ?>" class="button black">Next</a>
+			<?	
+				$next = $this->uri->segment(2) - 1;
+				$prev = $this->uri->segment(2) + 1;
+				if($data[0]["prev"]){
+					echo '<a href="'.base_url().'page/'.$next.'" class="button black">Previous</a> ';
+				}else{
+					echo '<a href="'.base_url().'" class="button black">Previous</a> ';
+				}
+				if($data[0]["next"]){ 
+					echo '<a href="'.base_url().'page/'.$prev.'" class="button black">Next</a>';
+				}
+			?>
 		</div>
 	</div>
 </div>
