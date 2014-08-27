@@ -172,6 +172,7 @@
 	}
 	
 	.circle {
+		border:solid 4px #fff;
 		display:inline-block;
 		@include modular_scale("margin", 6 4 4 4);
 		overflow:hidden;

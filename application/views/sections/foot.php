@@ -14,6 +14,8 @@
 <!-- End Google Analytics -->
 <script type="text/javascript" src="js/zepto.min.js"></script>
 <script type="text/javascript" src="js/zepto.touch.min.js"></script>
+<script type="text/javascript" src="js/zepto.fx.js"></script>
+<script type="text/javascript" src="js/zepto.fx_method.js"></script>
 <script type="text/javascript" src="js/zepto.isnap.min.js"></script>
 <!--[if IE]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
