@@ -1,24 +1,26 @@
 <div class="overlay">
+	<a href="#" class="close-modal"><span class="icons icons-large">&#10133;</span></a>
 	<div class="modal">
 		<div class="container">
-			<a href="#" class="close-modal"><span class="icons icons-medium">&#10133;</span></a>
-			<img src="<? echo base_url(); ?>img/layout/snapme_sign_in.png" alt="" />
 			<form method="post" action="<? echo base_url(); ?>forms/signin">
-				<label for="">
-					<input type="text" placeholder="Username" />
+				<label for="username">
+					<input id="username" type="text" placeholder="Username" autocomplete="off" />
+					<strong>Username</strong>
 				</label>
-				<label for="">
-					<a href="<? echo base_url(); ?>forgot" class="forgot">Forgot?</a>
-					<input type="password" placeholder="Password" />
+				<label for="password">
+					<input id="password" type="password" placeholder="Password" autocomplete="off" />
+					<strong>Password</strong>
 				</label>
+				<p>
 					<input type="submit" value="Sign In" class="button black" />
-				<div class="space">
-					<input type="checkbox" checked="checked" id="custom" />
-					<label for="custom">Stay logged in?</label>
-				</div>
-				<div class="new">
-					No iSnap Account? No Problem!
-					<div><a href="#">Sign up</a> as a rookie and get nominated!</div>
+				</p>
+				<p class="hint">
+					<a href="<? echo base_url(); ?>forgot">Lost my password?</a>
+				</p>
+				<div class="hint">
+					No iSnap Account? <br />
+					<a href="#">Sign up</a> as a rookie and<br />
+					get nominated!
 				</div>
 			</form>
 		</div>

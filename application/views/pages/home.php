@@ -6,7 +6,7 @@
 		<h1 class="light">The fastest and easiest way for designers to bookmark, save, and share the sites that inspire us.</h1>
 		<p>
 			<a href="#" class="button black">Getting Started</a>
-			<a href="#" class="button white">Sign In</a>
+			<a href="#" class="button white open-modal">Sign In</a>
 		</p>
 	</div>
 </section>

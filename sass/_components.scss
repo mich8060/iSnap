@@ -125,20 +125,31 @@
 .previews {
 	a {
 		border:solid 1px #eee;
-		display:inline-block;
+		display:block;
+		height:60px;
 		@include modular_scale("margin",0 2 0 0);
+		overflow:hidden;
 		position:relative;
 		
+		&:hover {
+			span {
+				opacity:1;
+			}
+		}
+		
 		span {
-			background:rgba(255,255,255,0.95);
-			border-top:solid 1px #eee;
-			color:colors(black);
+			background:rgba(255,255,255,0.65);
+			bottom:0;
+			color:#ccc;
 			display:block;
-			@include modular_scale("font-size",3);
-			font-weight:weight(bold);
-			@include modular_scale("line-height",3);
-			@include modular_scale("padding",1 2);
-			text-align:center;
+			left:0;
+			opacity:0;
+			@include modular_scale("padding",5 0);
+			position:absolute;
+			top:0;
+			right:0;
+			width:100%;
+			@include prefix('transition', all 0.5s ease);
 		}
 	}
 }

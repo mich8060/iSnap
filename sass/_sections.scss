@@ -24,7 +24,7 @@ header {
 
 main {
 	min-height:400px;
-	@include modular_scale("padding",15 0 50 0);
+	@include modular_scale("padding",15 0 15 0);
 }
 
 menu {
@@ -81,7 +81,7 @@ body.open {
 }
 
 .overlay{
-	background:rgba(0,0,0,0.5);
+	background:rgba(255,255,255,0.94);
 	bottom:0;
 	left:0;
 	opacity:0;
@@ -91,90 +91,74 @@ body.open {
 	visibility:hidden;
 	z-index:99999;
 	
+	.close-modal {
+		color:colors(black);
+		position:absolute;
+		right:8px;
+		top:8px;
+		@include prefix('transform', rotate(45deg));
+	}
+	
 	.modal {
 		display:inline-block;
-		left: 50%;
-		min-width:240px;
+		left:0;
 		opacity:0;
 		position:absolute;
+		right:0;
 		top: 50%;
-		width:300px;
 		@include prefix('transition', all 0.5s ease);
-		@include prefix('transform',translate(-50%, -50%));
-
-		.close-modal {
-			color:colors(white);
-			position:absolute;
-			right:4px;
-			top:4px;
-			@include prefix('transform', rotate(45deg));
+		@include prefix('transform',translate(0%, -50%));
+		
+		@media only screen and (min-width: 0px) and (max-width: 760px) { 
+			.container {
+			}
 		}
 
 		.container {
-			background: colors(white) url(../img/layout/snapme_brand_logo_white.png) no-repeat center 25px;
+			background: url(../img/layout/snapme_brand_logo.png) no-repeat center 25px;
 			background-size:100px 56px;
 			margin:0 auto;
-			padding:0;
+			padding:120px 0 0 0;
+				min-width:320px;
+				max-width:760px;
 			@include prefix('transform',scale(0.7));
 			@include prefix('transition', all 0.5s ease);
-			@include prefix('box-shadow', 0px 1px 10px 1px rgba(0,0,0,0.5));
 
 			form {
 				margin:0; 
+				text-align:center;
 
-				input[type="submit"] {
-					margin:0 auto;
-					position:relative;
-					left:50%;
-					@include prefix('transform', translate(-50%, 0%));
-				}
 
 				input[type="text"],
 				input[type="password"] {
+					background:transparent;
 					border-radius:0;
 					border:none;
-					border-top:solid 1px #ddd;
-					@include modular_scale("font-size", 5);
-					font-weight:weight(book);
+					display:inline-block;
+					letter-spacing:-0.04em;
+					@include modular_scale("font-size", 12);
+					font-weight:weight(bold);
 					margin:0;
-				}
-
-				input[type="password"] {
-					border-bottom:solid 1px #ddd;
-				}
-
-				input[type="submit"] {
-					background:colors(pink);
-					border-radius:0;
-					@include modular_scale("font-size", 5);
-					@include modular_scale("line-height", 12);
-					width:100%;
+					text-align:center;
 				}
 
 				label {
-					@include modular_scale("font-size", 4);
+					@include modular_scale("font-size", 3);
 					@include modular_scale("margin",0);
+					text-align:center;
+					
+					strong {
+						color:#ccc;
+						display:block;
+						text-transform:uppercase;
+						margin-bottom:-24px;
+						position:relative;
+						top:-24px;
+					}
 				}
 
 				.space {
 					@include modular_scale("padding",3);
-				}
-
-				.new {
-					background:#eee;
-					@include modular_scale("font-size", 3.5);
-					@include modular_scale("line-height", 4);
-					@include modular_scale("padding",3);
-					text-align:left;
-				}
-
-				.forgot {
-					float:right;
-					@include modular_scale("font-size", 3);
-					@include modular_scale("margin",0);
-					@include modular_scale("padding",3);
-					position:absolute;
-					@include modular_scale("right",0);
 				}
 			}
 		}

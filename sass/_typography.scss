@@ -332,7 +332,7 @@ p.lead {
 }
 
 .hint {
-	@include modular_scale("font-size",3);
+	@include modular_scale("font-size",4);
 	@include modular_scale("line-height",5);
 	font-weight:weight(book);
 	-webkit-font-smoothing: subpixel-antialiased; 

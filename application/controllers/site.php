@@ -16,6 +16,13 @@ class Site extends CI_Controller {
 			show_404('/this_page_was_not_found', FALSE);
 		}
 		
+		if($obj->premissions){
+			$is_logged_in = $this->session->userdata('is_logged_in');
+			if(!isset($is_logged_in) || $is_logged_in != true) {
+				redirect('portal');
+			}
+		}
+		
 		if($this->agent->is_mobile()){
 			if($this->agent->mobile() == 'iPad') {
 		    	$data['mobile'] = 'Tablet';
