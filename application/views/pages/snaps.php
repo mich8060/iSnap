@@ -20,11 +20,15 @@
 				<div class="grid_2 flush">
 					<? if(isset($data["prev"]) && $data["prev"]) { ?>
 					<a href="<? echo $data["prev"][0]->url; ?>"><img src="<? echo base_url().$data["prev"][0]->image; ?>" alt="<? echo $data["prev"][0]->title; ?>" /><span><span class="icons icons-large">&#11013;</span></span></a>
+					<? }else{ ?>
+					<a class="home" href="<? echo base_url(); ?>">Home</a>	
 					<? } ?>
 				</div>
 				<div class="grid_2 flush">
 					<? if(isset($data["next"]) && $data["next"]) { ?>
 					<a href="<? echo $data["next"][0]->url; ?>"><img src="<? echo base_url().$data["next"][0]->image; ?>" alt="<? echo $data["next"][0]->title; ?>" /><span><span class="icons icons-large">&#10145;</span></span></a>
+					<? }else{ ?>
+					<a class="home" href="<? echo base_url(); ?>">Home</a>	
 					<? } ?>
 				</div>
 			</div>

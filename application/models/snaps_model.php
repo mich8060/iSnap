@@ -55,7 +55,7 @@ class Snaps_model extends CI_Model {
 	function add($obj) {
 		
 		# Build screen capture from base64 encoded data
-		$img = $_POST['image'];
+		$img = $this->input->post('image');
 		$img = str_replace('data:image/png;base64,', '', $img);
 		$img = str_replace(' ', '+', $img);
 		$data = base64_decode($img);
