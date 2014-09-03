@@ -1,6 +1,8 @@
-<pre style="color:#fff;">
-	<? print_r($data); ?>
-</pre>
+<? if($dev){ ?>
+	<pre style="color:#fff;display:none;">
+		<? print_r($data); ?>
+	</pre>
+<? } ?>
 <div id="snap">
 	<div class="wide-container">
 		<div class="grid_1 fluff">

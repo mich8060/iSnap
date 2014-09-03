@@ -1,6 +1,8 @@
-<pre style="color:#fff;display:none;">
-	<? print_r($data); ?>
-</pre>
+<? if($dev){ ?>
+	<pre style="color:#fff;display:none;">
+		<? print_r($data); ?>
+	</pre>
+<? } ?>
 <div id="listing">
 	<div class="full-container">
 		<? foreach($data[0]->snaps as $d) { ?>

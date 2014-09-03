@@ -37,6 +37,8 @@ class Site extends CI_Controller {
 		# Check to see if this is a development enviroment
 		if (strpos(base_url() ,'http://localhost') !== false) {
 		    $data['dev'] = true;
+		}else{
+			$data['dev'] = false;
 		}
 		
 		# Record page view data
