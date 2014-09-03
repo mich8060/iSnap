@@ -1,6 +1,8 @@
-<pre style="color:#fff;display:none;">
-	<? print_r($data); ?>
-</pre>
+<? if($dev){ ?>
+	<pre style="color:#fff;display:none;">
+		<? print_r($data); ?>
+	</pre>
+<? } ?>
 <section class="intro">
 	<div class="outer-container">
 		<h1 class="light">The fastest and easiest way for designers to bookmark, save, and share the sites that inspire us.</h1>
@@ -16,7 +18,7 @@
 		<div class="grid_2 fluff">
 			<a href="<? echo $d->url ?>" class="listing-block">
 				<div class="snap" style="background-image:url(<? echo base_url().$d->image ?>)">
-					<img src="<? echo base_url(); ?>img/snaps/100x61.png" alt="" />
+					<img src="http://placehold.it/100x50" alt="" />
 				</div>
 				<div class="info">
 					<div class="title"><? echo $d->name; ?></div>

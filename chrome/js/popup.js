@@ -86,7 +86,7 @@ function sendSnap() {
     var dataURI = screenshot.canvas.toDataURL();
 
 	// The URL to POST our data to
-	var postUrl = 'http://localhost:8888/isnap/forms/snaps';
+	var postUrl = 'http://www.isnap.me/forms/snaps';
 	var url = encodeURIComponent(contentURL);
 	var img = encodeURIComponent(dataURI);
 	var keys = encodeURIComponent(keywords);

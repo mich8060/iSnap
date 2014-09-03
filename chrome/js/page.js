@@ -44,7 +44,7 @@ function getPositions(callback) {
 			document.documentElement.offsetHeight
         ],
         fullWidth = max(widths),
-        fullHeight = (max(heights) <= 800) ? max(heights) : 800,
+        fullHeight = (max(heights) <= 700) ? max(heights) : 700,
         windowWidth = window.innerWidth,
         windowHeight = window.innerHeight,
         originalX = window.scrollX,

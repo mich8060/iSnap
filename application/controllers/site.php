@@ -9,7 +9,7 @@ class Site extends CI_Controller {
 		$this->load->model('simple_model');
 		$data['control'] = $this->simple_model->simpleurl();
 	
-		// Create variable from multidimensional array to make more accesable. 
+		# Create variable from multidimensional array to make more accesable. 
 		$obj = $data['control'];	
 		
 		if(!$obj->active) {
@@ -23,6 +23,7 @@ class Site extends CI_Controller {
 			}
 		}
 		
+		# Check to see if they are using a mobile device
 		if($this->agent->is_mobile()){
 			if($this->agent->mobile() == 'iPad') {
 		    	$data['mobile'] = 'Tablet';
@@ -33,8 +34,18 @@ class Site extends CI_Controller {
 			$data['mobile'] = 'Desktop';
 		}
 		
+		# Check to see if this is a development enviroment
+		if (strpos(base_url() ,'http://localhost') !== false) {
+		    $data['dev'] = true;
+		}
 		
-		// Declare API Key
+		# Record page view data
+		$this->load->model('Data_model');
+		$segment = mysql_real_escape_string(strtolower($this->uri->segment(1)));
+		$identifier = mysql_real_escape_string(strtolower($this->uri->segment(2)));
+		$this->Data_model->views($segment, $identifier);
+		
+		# Declare API Key
 		if(!$obj->premissions){
 			$_SERVER['API_KEY'] = $this->config->item('api_key');
 		}

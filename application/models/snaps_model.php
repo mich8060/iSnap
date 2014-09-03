@@ -2,7 +2,7 @@
 
 class Snaps_model extends CI_Model {
 	
-	function index() {
+	public function index() {
 		
 		$this->db->select('snaps.*, simpleurl.url');
 		$this->db->from('snaps');
@@ -21,7 +21,7 @@ class Snaps_model extends CI_Model {
 		}
 	}
 	
-	function resize($image) {
+	private function resize($image) {
 		$thumb_width = 800;
 		$thumb_height = 500;
 
@@ -52,7 +52,7 @@ class Snaps_model extends CI_Model {
 		imagejpeg($thumb, $filename, 80);
 	}
 	
-	function add($obj) {
+	public function add($obj) {
 		
 		# Build screen capture from base64 encoded data
 		$img = $this->input->post('image');
@@ -136,92 +136,20 @@ class Snaps_model extends CI_Model {
 	}
 	
 	public function read(){
-		$query = $this->db->query('SELECT * FROM snaps');
-		if($query->num_rows() > 0) {
-			foreach($query->result() as $row){
-				$data[] = $row;
-			}
-			return $data;
-		}
+		$json = json_decode(file_get_contents("http://api.isnap.me/snaps"));
+		return $json;
 	}
 	
-	public function page($offset, $limit) {
-		$pagination["base_url"] = base_url() . "page/";
-		$pagination["page"] = $this->uri->segment(2);
-		$pagination["per_page"] = (isset($limit) ? ($limit * 1) : 12);
-		$pagination["start"] = (isset($offset) ? ($offset * 1) : ($pagination["page"] * $pagination["per_page"]));
-		$pagination["count"] = $this->record_count();
-		
-		$data[] = array(
-			"total" =>	$pagination["count"],
-			"offset" =>	$pagination["start"],
-			"limit"	=> $pagination["per_page"],
-			"next"	=>	(($pagination["start"] + $pagination["per_page"]) < $pagination["count"]) ? 1 : 0,
-			"prev"	=>	($pagination["start"] > $pagination["per_page"]) ? 1 : 0,
-			"snaps" =>	null
-		);
-		
-		$this->db->select('snaps.*, simpleurl.url');
-		$this->db->from('snaps');
-		$this->db->join('simpleurl', 'snaps.page_url=simpleurl.id');
-		$this->db->order_by("id", "desc");
-		$this->db->limit($pagination["per_page"], $pagination["start"]);
-		$query = $this->db->get();
-
-		if ($query->num_rows() > 0){
-			foreach ($query->result() as $row) {
-				$data[0]["snaps"][] = $row;
-			}
-			return $data;
-		}
-		return false;
+	public function page() {
+		$identifier = mysql_real_escape_string(strtolower($this->uri->segment(2)));
+		$json = json_decode(file_get_contents("http://api.isnap.me/snaps/page/".$identifier));
+		return $json;
 	}
 	
 	public function id() {
-		$query = $this->db->query(
-				'SELECT snaps.* 
-				 FROM snaps 
-				 JOIN simpleurl ON snaps.page_url=simpleurl.id
-				 WHERE simpleurl.url="'.$this->uri->segment(1).'"');
-				
-		if($query->num_rows() > 0) {
-			$main = $query->result();
-			$reference = $main[0]->id;
-			
-			# Get previous item in database
-			$this->db->select('snaps.*, simpleurl.url');
-			$this->db->from('snaps');
-			$this->db->join('simpleurl', 'snaps.page_url=simpleurl.id');
-			$this->db->where('snaps.id >', $reference); 
-			$this->db->order_by("snaps.id");
-			$this->db->limit(1);
-			$prev = $this->db->get();
-			
-			if($prev->num_rows() > 0) {
-				$prev_item = $prev->result();
-			}
-			
-			# Get next item in database
-			$this->db->select('snaps.*, simpleurl.url');
-			$this->db->from('snaps');
-			$this->db->join('simpleurl', 'snaps.page_url=simpleurl.id');
-			$this->db->where('snaps.id <', $reference); 
-			$this->db->order_by("snaps.id", "desc");
-			$this->db->limit(1);
-			$next = $this->db->get();
-			
-			if($next->num_rows() > 0) {
-				$next_item = $next ->result();
-			}
-			
-			$data = array(
-				"next"	=>	(isset($next_item)) ? $next_item : false,
-				"prev"	=>	(isset($prev_item)) ? $prev_item : false,
-				"item"	=>	$main
-			);
-			
-			return $data;
-		}
+		$identifier = mysql_real_escape_string(strtolower($this->uri->segment(1)));
+		$json = json_decode(file_get_contents("http://api.isnap.me/snaps/id/".$identifier));
+		return $json;
 	}
 	
 	public function find() {
