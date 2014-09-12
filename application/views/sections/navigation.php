@@ -1,6 +1,6 @@
 <nav>
-	<a href="#">Recent</a>
-	<a href="#">Popular</a>
+	<a href="#">Snaps</a>
+	<a href="#">Palettes</a>
 	<a href="#">People</a>
 	<a href="#">Teams</a>
 </nav>

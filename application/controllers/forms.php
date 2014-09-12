@@ -11,6 +11,19 @@ class Forms extends CI_Controller {
 				$this->load->model("snaps_model");
 				$this->snaps_model->add($obj);
 		        break;
+			case "signin":
+				$obj = $this->clean($_POST);
+				$this->load->model("signin_model");
+				$this->signin_model->validate($obj);
+				break;
+			case "signout":
+				$this->load->model("signin_model");
+				$this->signin_model->logout();
+				break;
+			case "heart":
+				$this->load->model("misc_model");
+				$this->misc_model->heart();
+				break; 
 		    default:
 				show_404('/this_page_was_not_found', FALSE);
 				break;

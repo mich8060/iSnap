@@ -44,7 +44,7 @@ $route['forms/(:any)'] = 'forms';
 $route['tools/(:any)'] = 'tools';
 $route['snap/(:any)'] = '';
 $route['page/(:any)'] = '';
-$route['services/(:any)'] = 'services';
+$route['download/(:any)'] = 'download';
 $route['(:any)'] = 'site';
 
 

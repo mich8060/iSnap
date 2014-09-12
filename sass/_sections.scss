@@ -63,6 +63,42 @@ nav {
 	}
 }
 
+search {
+	padding:0;
+	position:absolute;
+	left:400px;
+	right:160px;
+	max-width:400px;
+	
+	form {
+		margin:0;
+		padding:8px;
+		position:relative;
+		
+		input[type="search"] {
+			font-weight:weight(light);
+			padding:8px 4px;
+		}
+
+		input[type="submit"] {
+			background:transparent;
+			font-family:"Entypo";
+			font-size:32px;
+			padding:0;
+			position:absolute;
+			right:15px;
+			top:15%;
+		}
+	}	
+}
+
+@include breakpoint(mobile) {
+	search {
+		left:100px;
+		right:0;
+	}
+}
+
 body.open {
 	
 	.overlay {

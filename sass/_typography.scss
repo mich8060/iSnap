@@ -439,6 +439,28 @@ ol li {
 	list-style: decimal outside;
 }
 
+.horizontal-list {
+	display:block;
+	float:left;
+	list-style-type:none;
+	@include modular_scale("margin", 2 0 4 0);
+	padding:0;
+	width:100%;
+	
+	li {
+		border-right:solid 1px #666;
+		float:left;
+		list-style-type:none;
+		line-height:12px;
+		@include modular_scale("margin", 0 2 0 0);
+		@include modular_scale("padding", 0 2 0 0);
+		
+		&:last-child {
+			border:none;
+		}
+	}
+}
+
 dt, dl { @include modular_scale("line-height",5); }
 dt { @include modular_scale("margin", 3 0 0 0); }
 dl { @include modular_scale("margin", 0 0 3 0); }

@@ -3,22 +3,8 @@
 class Snaps_model extends CI_Model {
 	
 	public function index() {
-		
-		$this->db->select('snaps.*, simpleurl.url');
-		$this->db->from('snaps');
-		$this->db->join('simpleurl', 'snaps.page_url=simpleurl.id');
-		$this->db->order_by("id", "desc");
-		$this->db->limit(0, 12);
-		$query = $this->db->get();
-		
-		$query = $this->db->query('SELECT snaps.*, simpleurl.url FROM snaps JOIN simpleurl ON simpleurl.id = snaps.page_url ORDER BY id DESC LIMIT 0, 12');
-		
-		if($query->num_rows() > 0) {
-			foreach($query->result() as $row){
-				$data[] = $row;
-			}
-			return $data;
-		}
+		$json = json_decode(file_get_contents("http://api.isnap.me/snaps/page/0"));
+		return $json;
 	}
 	
 	private function resize($image) {

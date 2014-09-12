@@ -2,13 +2,13 @@
 	<a href="#" class="close-modal"><span class="icons icons-large">&#10133;</span></a>
 	<div class="modal">
 		<div class="container">
-			<form method="post" action="<? echo base_url(); ?>forms/signin">
+			<form method="post" action="<? echo base_url(); ?>forms/signin" autocomplete="off" id="signin">
 				<label for="username">
-					<input id="username" type="text" placeholder="Username" autocomplete="off" />
+					<input id="username" name="username" type="text" placeholder="Username" autocomplete="off" />
 					<strong>Username</strong>
 				</label>
 				<label for="password">
-					<input id="password" type="password" placeholder="Password" autocomplete="off" />
+					<input id="password" name="password" type="password" placeholder="Password" autocomplete="off" />
 					<strong>Password</strong>
 				</label>
 				<p>
