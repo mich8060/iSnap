@@ -15,6 +15,7 @@
 <script type="text/javascript" src="js/zepto.fx.js"></script>
 <script type="text/javascript" src="js/zepto.fx_method.js"></script>
 <script type="text/javascript" src="js/zepto.isnap.min.js"></script>
+<script type="text/javascript" src="http://connect.facebook.net/en_US/sdk.js#xfbml=1&appId=365283620193152&version=v2.0"></script>
 <!--[if IE]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->

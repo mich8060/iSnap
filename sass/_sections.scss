@@ -38,6 +38,14 @@ menu {
 		&:hover {
 			color:colors(black);
 		}
+		
+		img {
+			float:right;
+			position:relative;
+			@include modular_scale("margin", 0 0 -12 2);
+			@include modular_scale("top",-1);
+			@include modular_scale("width",8);
+		}
 	}
 }
 

@@ -1,8 +1,9 @@
 <? if($dev){ ?>
-	<pre style="color:#fff;display:none;">
+	<pre style="color:#fff;">
 		<? print_r($data[0]->snaps); ?>
 	</pre>
 <? } ?>
+<? if($dev){ ?>
 <section class="intro">
 	<div class="outer-container">
 		<h1 class="light">The fastest and easiest way for designers to bookmark, save, and share the sites that inspire us.</h1>
@@ -12,6 +13,7 @@
 		</p>
 	</div>
 </section>
+<? } ?>
 <div class="listing">
 	<div class="full-container">
 		<? 

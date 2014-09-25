@@ -92,6 +92,20 @@
 	text-align:center;
 }
 
+main.transition {
+	.outer-container {
+		opacity:0;
+		@include prefix('transition',opacity 0.3s ease);
+	}
+}
+
+main {
+	.outer-container {
+		opacity:1;
+		@include prefix('transition',opacity 0.3s ease);
+	}
+}
+
 .gallery {
 	background:#22242d;
 	color:colors(white);
@@ -100,6 +114,7 @@
 	
 	.snap-shot {
 		display:block;
+		max-height:540px;
 		@include prefix('box-shadow', 0 0 8px rgba(0,0,0,1));
 	}
 	
@@ -141,7 +156,7 @@
 		}
 	}
 	
-	.palette {
+	.snap-palette {
 		margin-top:-12px;
 		overflow:hidden;
 
@@ -151,6 +166,12 @@
 			font-weight:weight(semibold);
 			position:relative;
 			z-index:9;
+			
+			a{
+				&:hover {
+					color:#fff;
+				}
+			}
 		}
 
 		.swatches {

@@ -34,6 +34,21 @@ class Signin_model extends CI_Model {
 		echo json_encode($data);
 	}
 	
+	public function info(){
+		$this->db->select('*');
+		$this->db->from('profile');
+		$this->db->limit(1);
+		$this->db->where('username',$this->session->userdata('username'));
+		$query = $this->db->get();
+		
+		if($query->num_rows() > 0) {
+			foreach($query->result() as $row){
+				$data[] = $row;
+			}
+			return $data;
+		}
+	}
+	
 	public function logout() {
 		$this->session->sess_destroy();
 		redirect(base_url());

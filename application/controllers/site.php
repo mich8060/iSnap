@@ -23,6 +23,13 @@ class Site extends CI_Controller {
 			}
 		}
 		
+		# If logged in pass user data
+		
+		if($this->session->userdata('is_logged_in')){	
+			$this->load->model("signin_model");
+			$data['user_data'] = $this->signin_model->info();
+		}
+		
 		# Check to see if they are using a mobile device
 		if($this->agent->is_mobile()){
 			if($this->agent->mobile() == 'iPad') {

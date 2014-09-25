@@ -717,6 +717,12 @@ pre, textarea {
 	}
 }
 
+.tab-content {
+	.tab {
+		display:none;
+	}
+}
+
 /*	Section Spacer */
 .section {
 	clear:both;
